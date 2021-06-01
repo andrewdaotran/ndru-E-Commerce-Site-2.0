@@ -1,0 +1,212 @@
+/* CSS RESET */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/* CSS RESET END */
+:root {
+  --main-color: rgb(129, 116, 87);
+  --second-color: rgb(47, 43, 40);
+  --background-color: rgb(238, 233, 210);
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Oxygen", sans-serif;
+  background-color: var(--background-color);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: var(--main-color);
+  color: var(--second-color);
+  width: 100%;
+  position: sticky;
+  z-index: 1;
+}
+.nav-center {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  width: 90vw;
+  max-width: 1170px;
+  margin: 0 auto;
+  height: 60px;
+}
+.nav-visible {
+  display: none;
+}
+.nav-visible a {
+  font-weight: bold;
+  transition: var(--transition);
+  padding-right: 1rem;
+}
+.nav-visible a:hover,
+.nav-visible a:focus {
+  color: var(--background-color);
+}
+
+.website-logo {
+  width: 150px;
+  grid-column: 2 / 3;
+  justify-self: center;
+}
+.nav-icon {
+  cursor: pointer;
+  transition: var(--transition);
+}
+.nav-icon:hover,
+.nav-icon:focus {
+  color: var(--background-color);
+}
+/* Navbar End */
+/* Hero */
+/* Hero End */
+
+/* Product Sections */
+.product-section {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+/* .product-section-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(autofit, minmax(250px, 1fr));
+} */
+.product {
+  display: grid;
+  grid-template-columns: repeat(autofit, minmax(250px, 1fr));
+}
+.product img {
+  width: 100%;
+  justify-self: center;
+  display: block;
+  cursor: pointer;
+}
+.product h3 {
+  justify-self: center;
+  color: var(--second-color);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.product h3:hover,
+.produt h4:hover {
+  color: var(--main-color);
+}
+.product h4 {
+  justify-self: center;
+  color: var(--second-color);
+}
+/* Fashion Products */
+
+/* Fashion Products End */
+/* Products End */
+
+@media only screen and (min-width: 780px) {
+  .nav-center {
+    grid-template-columns: auto 1fr 80px;
+  }
+  .website-logo {
+    grid-column: 1 / 2;
+  }
+  .nav-visible {
+    grid-column: 2 / 3;
+    display: block;
+    justify-self: center;
+  }
+  .nav-icon-1 {
+    display: none;
+  }
+  .nav-icon {
+    justify-self: end;
+  }
+}
