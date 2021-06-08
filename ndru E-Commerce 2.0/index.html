@@ -28,24 +28,115 @@
     <!-- Navbar -->
     <nav class="navbar">
       <div class="nav-center">
-        <span class="nav-icon nav-icon-1">
-          <i class="fas fa-bars"></i>
-        </span>
-        <a class="website-logo" href="#"
+        <button class="nav-icon nav-bars">
+          <i class="fas fa-bars nav-icon-1"></i>
+        </button>
+        <a class="website-logo" href="index.html"
           ><img src="./images/logo-generic.svg" alt="website logo"
         /></a>
         <div class="nav-visible">
-          <a href="#">Home</a>
-          <a href="#">Tech</a>
-          <a href="#">Fashion</a>
-          <a href="#">ndru</a>
+          <a tabindex="0" href="#">Home</a>
+          <a tabindex="0" href="#">Tech</a>
+          <a tabindex="0" href="#">Fashion</a>
+          <a tabindex="0" href="#">ndru</a>
         </div>
-        <span class="nav-icon">
-          <i class="fas fa-shopping-cart"></i>
-        </span>
+        <button class="nav-icon">
+          <i class="fas fa-shopping-cart shopping-cart-open"></i>
+        </button>
       </div>
     </nav>
     <!-- Navbar End -->
+    <!-- Mobile Navbar -->
+    <div id="mobile-nav" class="mobile-nav">
+      <div class="mobile-nav-container">
+        <!-- <span class="mobile-nav-close"><i class="fas fa-times fa-2x"></i></span> -->
+        <span><a href="index.html" class="home">Home</a></span>
+        <span><a href="#" class="tech">Tech</a></span>
+        <span><a href="#" class="fashion">Fashion</a></span>
+        <span><a href="#" class="ndru">ndru</a></span>
+      </div>
+      <div class="overlay-1 overlay"></div>
+    </div>
+
+    <!-- Mobile Navbar End -->
+
+    <!-- Shopping Cart -->
+
+    <div class="shopping-cart">
+      <div class="shopping-cart-container">
+        <div class="cart-empty">
+          <i class="fas fa-shopping-cart"></i>
+          <h3>Your Cart is Empty</h3>
+          <h3>Continue Shopping</h3>
+        </div>
+        <div class="shopping-cart-items">
+          <!-- Shopping Cart Items -->
+          <div class="cart-not-empty">
+            <h3>Shopping Cart (<span class="cart-amount">0</span>)</h3>
+          </div>
+
+          <!-- Single Shopping Cart Item -->
+          <div class="shopping-cart-item">
+            <a href="#" class="shopping-cart-item-image">
+              <img
+                class="shopping-cart-item-image"
+                src="./images/Tom Ford FT5532-B.jpg"
+                alt="Tom Ford Glasses"
+              />
+            </a>
+            <div class="shopping-cart-item-info">
+              <span>
+                <a class="shopping-cart-item-name" href="#"
+                  >Tom Ford FT5532-B</a
+                >
+              </span>
+
+              <h4 class="shopping-cart-item-amount">
+                $<span class="shopping-cart-item-price">615.00</span>
+              </h4>
+              <div class="shopping-cart-item-quantity">
+                <button class="shopping-cart-item-decrease">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <input
+                  type="text"
+                  class="shopping-cart-item-quantity-input"
+                  value="1"
+                />
+                <button class="shopping-cart-item-increase">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+            <i class="fas fa-trash remove-cart-item"></i>
+          </div>
+          <!-- Single Shopping Cart Item -->
+
+          <!-- Shopping Cart Items End -->
+        </div>
+      </div>
+      <!-- Shopping Cart Footer -->
+
+      <div class="shopping-cart-footer">
+        <h4 class="subtotal">Subtotal :</h4>
+        <h4 class="amount">$<span class="shopping-cart-total">0.00</span></h4>
+        <form class="discount-code-form">
+          <input
+            class="discount-code-input"
+            type="text"
+            placeholder="Discount Code"
+          />
+          <button class="discount-code-submit" type="submit">Apply</button>
+        </form>
+        <button class="checkout">Checkout</button>
+        <a class="go-to-cart" href="#">Go to cart</a>
+      </div>
+
+      <!-- Shopping Cart Footer End -->
+      <div class="overlay-2 overlay"></div>
+    </div>
+    <!-- Shopping Cart End -->
+
     <!-- Hero -->
     <!-- <div class="hero-main">
       <h2>lorem ipsum</h2>
@@ -61,21 +152,63 @@
     <section class="fashion-products product-section">
       <div class="fashion-products-container product-section-container">
         <!-- Single Product -->
-        <div class="fashion-product product">
-          <img src="./images/Tom Ford FT5532-B.jpg" alt="Tom Ford Glasses" />
-          <h3>Tom Ford FT5532-B</h3>
-          <h4>$ <span>615.00</span></h4>
-        </div>
-        <!-- Single Product End -->
-        <!-- Single Product -->
-        <div class="fashion-product product">
-          <img src="./images/Tom Ford FT5532-B.jpg" alt="Tom Ford Glasses" />
-          <h3>Tom Ford FT5532-B</h3>
-          <h4>$ <span>615.00</span></h4>
+        <div class="fashion-product product" data-id="1">
+          <div class="img-container">
+            <img
+              class="product-img"
+              src="./images/Tom Ford FT5532-B.jpg"
+              alt="Tom Ford Glasses"
+            />
+          </div>
+
+          <a class="product-name" tabindex="0" href="#">Tom Ford FT5532-B</a>
+
+          <h4>$ <span class="product-price">615.00</span></h4>
+          <button class="add-to-cart">Add to cart</button>
         </div>
         <!-- Single Product End -->
       </div>
     </section>
     <!-- Fashion Products End -->
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-products footer-section">
+          <h3>Products</h3>
+          <span class="footer-open">
+            <i class="fas fa-plus footer-open-products"></i>
+            <!-- <i class="fas fa-times"></i> -->
+          </span>
+          <div class="footer-products-items footer-section-items">
+            <a href="#">Tech</a>
+            <a href="#">Fashion</a>
+          </div>
+        </div>
+        <div class="footer-ndru footer-section">
+          <h3>ndru</h3>
+          <!-- <span class="footer-open">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-times"></i>
+          </span> -->
+        </div>
+        <h4>Stay up-to-date on ndru's products</h4>
+        <h5>Sign up to receive updates on his latest purchases.</h5>
+        <div class="form-container">
+          <form class="email">
+            <span>
+              <i class="far fa-envelope"></i>
+            </span>
+            <input type="text" class="email-input" placeholder="Email" />
+            <button class="email-submit" type="submit">Sign Up</button>
+          </form>
+          <p class="invalid-input">
+            Please enter a valid email address (Example: name@domain.com)
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
+    <script src="app.js"></script>
   </body>
 </html>
