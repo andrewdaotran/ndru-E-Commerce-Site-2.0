@@ -22,11 +22,12 @@ const shoppingCartItemQuantity = document.getElementsByClassName(
 );
 const shoppingCartEmptyMessage = document.querySelector(".cart-empty");
 const shoppingCartNotEmptyMessage = document.querySelector(".cart-not-empty");
+const shoppingCartFooter = document.querySelector(".shopping-cart-footer");
 
 // product selectors
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 
-// footer selectors
+// page footer selectors
 const footerContainer = document.querySelector(".footer-container");
 const productMenu = document.querySelector(".footer-products-items");
 const footerOpenCloseIcon = document.querySelector(".footer-open-products");
@@ -37,13 +38,6 @@ const invalidEmailInput = document.querySelector(".invalid-input");
 //DOM SELECTORS END
 
 // FUNCTIONS
-if (shoppingCartArray.length > 0) {
-  shoppingCartEmptyMessage.style.display = "none";
-  shoppingCartNotEmptyMessage.style.display = "block";
-} else {
-  shoppingCartEmptyMessage.style.display = "grid";
-  shoppingCartNotEmptyMessage.style.display = "none";
-}
 
 const openCloseMobileNav = (event) => {
   let clickedItem = event.target;
@@ -108,6 +102,18 @@ const openCloseShoppingCart = (event) => {
   }
 };
 
+const checkShoppingCartForID = () => {
+  if (shoppingCartArray.length > 0) {
+    shoppingCartEmptyMessage.style.display = "none";
+    shoppingCartNotEmptyMessage.style.display = "block";
+    shoppingCartFooter.style.display = "grid";
+  } else {
+    shoppingCartEmptyMessage.style.display = "grid";
+    shoppingCartNotEmptyMessage.style.display = "none";
+    shoppingCartFooter.style.display = "none";
+  }
+};
+
 const increaseDecreaseItemQuantity = (event) => {
   let clickedItem = event.target;
   let quantity = clickedItem.parentElement.querySelector(
@@ -162,13 +168,23 @@ const updateCartTotal = () => {
 const addToCart = (event) => {
   let button = event.target;
   let product = button.parentElement;
+  let id = product.getAttribute("data-id");
   let imgSrc = product.querySelector(".product-img").src;
   let productName = product.querySelector(".product-name").innerText;
   let price = product.querySelector(".product-price").innerText;
-  let item = document.createElement("div");
-  item.classList.add("shopping-cart-item");
-  console.log(item);
-  item.innerHTML = `<a href="#" class="shopping-cart-item-image">
+  let cartItem = document.createElement("div");
+  cartItem.classList.add("shopping-cart-item");
+  cartItem.setAttribute("data-id", id);
+  let cartItemNames = shoppingCartItemsContainer.querySelectorAll(
+    ".shopping-cart-item-name"
+  );
+  for (let name of cartItemNames) {
+    if (name.innerText === productName) {
+      //need to increase input by one instead of just returning
+      // return;
+    }
+  }
+  cartItem.innerHTML = `<a href="#" class="shopping-cart-item-image">
               <img
                 class="shopping-cart-item-image"
                 src="${imgSrc}"
@@ -200,7 +216,9 @@ const addToCart = (event) => {
               </div>
             </div>
             <i class="fas fa-trash remove-cart-item"></i>`;
-  shoppingCartItemsContainer.append(item);
+  shoppingCartItemsContainer.append(cartItem);
+
+  // button.innerText = "In cart";
   //open shopping cart
   // shoppingCart.style.display = "block";
   // shoppingCartButton.classList.remove("fa-shopping-cart");
@@ -209,7 +227,9 @@ const addToCart = (event) => {
   // productNames.forEach((productName) => {
   //   productName.tabIndex = "-1";
   // });
-  console.log(imgSrc, productName, price);
+  shoppingCartArray.push(id);
+  checkShoppingCartForID();
+  updateCartTotal();
 };
 
 const footerOpenClose = (event) => {
