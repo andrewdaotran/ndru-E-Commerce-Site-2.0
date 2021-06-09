@@ -76,6 +76,7 @@ select {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 a:visited {
   color: inherit;
@@ -103,6 +104,7 @@ input {
 body {
   font-family: "Oxygen", sans-serif;
   background-color: var(--background-color);
+  position: relative;
 }
 
 /* Navbar */
@@ -410,6 +412,7 @@ body {
   width: 90vw;
   max-width: 1170px;
   margin: 2rem auto;
+  /* height: calc(100% - 385px); */
 }
 .product-section-container {
   width: 100%;

@@ -9,7 +9,7 @@ const productNames = document.querySelectorAll(".product-name");
 const shoppingCartButton = document.querySelector(".fa-shopping-cart");
 
 // shopping cart selectors
-const shoppingCartArray = [];
+let shoppingCartArray = [];
 const shoppingCart = document.querySelector(".shopping-cart");
 const shoppingCartItemsContainer = document.querySelector(
   ".shopping-cart-container"
@@ -126,7 +126,6 @@ const increaseDecreaseItemQuantity = (event) => {
     }
     updateCartTotal();
   });
-  console.log(quantity);
   if (
     clickedItem.classList.contains("shopping-cart-item-decrease") &&
     quantity.value > 1
@@ -141,8 +140,22 @@ const increaseDecreaseItemQuantity = (event) => {
 
 const removeCartItem = (event) => {
   let clickedItem = event.target;
+  let id = clickedItem.parentElement.getAttribute("data-id");
+  let filteredArray = shoppingCartArray.filter((value) => {
+    return value !== id;
+  });
+  shoppingCartArray = filteredArray;
   clickedItem.parentElement.remove();
   updateCartTotal();
+  checkShoppingCartForID();
+  // change from in cart to add to cart when remove from cart
+  let products = document.querySelectorAll(".product");
+  for (let product of products) {
+    let productID = product.getAttribute("data-id");
+    if (id === productID) {
+      product.querySelector(".add-to-cart").innerText = "Add to cart";
+    }
+  }
 };
 
 const updateCartTotal = () => {
@@ -168,6 +181,7 @@ const updateCartTotal = () => {
 const addToCart = (event) => {
   let button = event.target;
   let product = button.parentElement;
+  product.querySelector(".add-to-cart").innerText = "In cart";
   let id = product.getAttribute("data-id");
   let imgSrc = product.querySelector(".product-img").src;
   let productName = product.querySelector(".product-name").innerText;
@@ -175,15 +189,14 @@ const addToCart = (event) => {
   let cartItem = document.createElement("div");
   cartItem.classList.add("shopping-cart-item");
   cartItem.setAttribute("data-id", id);
-  let cartItemNames = shoppingCartItemsContainer.querySelectorAll(
-    ".shopping-cart-item-name"
-  );
-  for (let name of cartItemNames) {
-    if (name.innerText === productName) {
-      //need to increase input by one instead of just returning
-      // return;
-    }
+  // let cartItemNames = shoppingCartItemsContainer.querySelectorAll(
+  //   ".shopping-cart-item-name"
+  // );
+
+  if (shoppingCartArray.includes(id)) {
+    return;
   }
+
   cartItem.innerHTML = `<a href="#" class="shopping-cart-item-image">
               <img
                 class="shopping-cart-item-image"
@@ -230,6 +243,13 @@ const addToCart = (event) => {
   shoppingCartArray.push(id);
   checkShoppingCartForID();
   updateCartTotal();
+  for (let button of shoppingCartDeleteButtons) {
+    button.addEventListener("click", removeCartItem);
+  }
+  //shopping cart quantity updates
+  for (let individualQuantity of shoppingCartItemQuantity) {
+    individualQuantity.addEventListener("click", increaseDecreaseItemQuantity);
+  }
 };
 
 const footerOpenClose = (event) => {
