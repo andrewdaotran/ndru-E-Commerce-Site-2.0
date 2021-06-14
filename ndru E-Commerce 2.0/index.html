@@ -40,9 +40,17 @@
           <a tabindex="0" href="#">Fashion</a>
           <a tabindex="0" href="#">ndru</a>
         </div>
-        <button class="nav-icon">
+        <button class="nav-icon shopping-cart-button-container">
           <i class="fas fa-shopping-cart shopping-cart-open"></i>
+          <div class="cart-amount-container">
+            <div class="cart-amount-display">0</div>
+          </div>
         </button>
+      </div>
+      <div class="free-shipping-banner">
+        <i class="fas fa-shipping-fast shipping-truck-icon"></i>
+        <p>Fast, Free Shipping over $3000</p>
+        <i class="fas fa-times free-shipping-close"></i>
       </div>
     </nav>
     <!-- Navbar End -->
@@ -111,26 +119,54 @@
             <i class="fas fa-trash remove-cart-item"></i>
           </div> -->
           <!-- Single Shopping Cart Item -->
-
-          <!-- Shopping Cart Items End -->
         </div>
+        <!-- Shopping Cart Items End -->
       </div>
+
+      <!-- Discount Code -->
+      <div class="discount-code-container"></div>
+      <!-- Discount Code End -->
+
       <!-- Shopping Cart Footer -->
 
       <div class="shopping-cart-footer">
-        <!-- <div class="subtotal-and-amount"> -->
-        <h4 class="subtotal">Subtotal :</h4>
-        <h4 class="amount">$<span class="shopping-cart-total">0.00</span></h4>
-        <!-- </div> -->
+        <div class="complete-total-container">
+          <h4 class="subtotal">Subtotal :</h4>
+          <h4 class="subtotal-amount">
+            $<span class="shopping-cart-subtotal">0.00</span>
+          </h4>
+          <div class="discount-container">
+            <h4 class="discount">Coupon :</h4>
+            <p class="coupon-code">"hello"</p>
+            <h4 class="coupon-code-amount">
+              - $<span class="coupon-code-total">0.00</span>
+            </h4>
+            <button class="remove-discount">[remove]</button>
+          </div>
 
+          <h4 class="shipping">Shipping :</h4>
+          <h4 class="shipping-amount">
+            $<span class="shipping-total">0.00</span>
+          </h4>
+
+          <h4 class="tax">Tax :</h4>
+          <h4 class="tax-amount">$<span class="tax-total">0.00</span></h4>
+
+          <h4 class="total">Total :</h4>
+          <h4 class="total-amount">
+            $<span class="shopping-cart-total">0.00</span>
+          </h4>
+        </div>
+        <p class="wrong-discount">Please input a valid promo code</p>
         <form class="discount-code-form">
           <input
             class="discount-code-input"
             type="text"
-            placeholder="Discount Code"
+            placeholder="Promo Code"
           />
           <button class="discount-code-submit" type="submit">Apply</button>
         </form>
+
         <button class="checkout">Checkout</button>
         <a class="go-to-cart" href="#">Go to cart</a>
       </div>
@@ -170,9 +206,160 @@
           <button class="add-to-cart">Add to cart</button>
         </div>
         <!-- Single Product End -->
+        <!-- Single Product -->
+        <div class="fashion-product product" data-id="2">
+          <div class="img-container">
+            <img
+              class="product-img"
+              src="./images/Tom Ford FT5532-B.jpg"
+              alt="Tom Ford Glasses"
+            />
+          </div>
+
+          <a class="product-name" tabindex="0" href="#">Tom Ford FT5532-B</a>
+
+          <h4>$ <span class="product-price">500.00</span></h4>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+        <!-- Single Product End -->
+        <!-- Single Product -->
+        <div class="fashion-product product" data-id="3">
+          <div class="img-container">
+            <img
+              class="product-img"
+              src="./images/Tom Ford FT5532-B.jpg"
+              alt="Tom Ford Glasses"
+            />
+          </div>
+
+          <a class="product-name" tabindex="0" href="#">Tom Ford FT5532-B</a>
+
+          <h4>$ <span class="product-price">499.00</span></h4>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+        <!-- Single Product End -->
+        <!-- Single Product -->
+        <div class="fashion-product product" data-id="4">
+          <div class="img-container">
+            <img
+              class="product-img"
+              src="./images/Tom Ford FT5532-B.jpg"
+              alt="Tom Ford Glasses"
+            />
+          </div>
+
+          <a class="product-name" tabindex="0" href="#">Tom Ford FT5532-B</a>
+
+          <h4>$ <span class="product-price">615.00</span></h4>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+        <!-- Single Product End -->
+        <!-- Single Product -->
+        <div class="fashion-product product" data-id="5">
+          <div class="img-container">
+            <img
+              class="product-img"
+              src="./images/Tom Ford FT5532-B.jpg"
+              alt="Tom Ford Glasses"
+            />
+          </div>
+
+          <a class="product-name" tabindex="0" href="#">Tom Ford FT5532-B</a>
+
+          <h4>$ <span class="product-price">615.00</span></h4>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+        <!-- Single Product End -->
+        <!-- Single Product -->
+        <div class="fashion-product product" data-id="6">
+          <div class="img-container">
+            <img
+              class="product-img"
+              src="./images/Tom Ford FT5532-B.jpg"
+              alt="Tom Ford Glasses"
+            />
+          </div>
+
+          <a class="product-name" tabindex="0" href="#">Tom Ford FT5532-B</a>
+
+          <h4>$ <span class="product-price">615.00</span></h4>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+        <!-- Single Product End -->
+        <!-- Single Product -->
+        <div class="fashion-product product" data-id="7">
+          <div class="img-container">
+            <img
+              class="product-img"
+              src="./images/Tom Ford FT5532-B.jpg"
+              alt="Tom Ford Glasses"
+            />
+          </div>
+
+          <a class="product-name" tabindex="0" href="#">Tom Ford FT5532-B</a>
+
+          <h4>$ <span class="product-price">615.00</span></h4>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+        <!-- Single Product End -->
+        <!-- Single Product -->
+        <div class="fashion-product product" data-id="8">
+          <div class="img-container">
+            <img
+              class="product-img"
+              src="./images/Tom Ford FT5532-B.jpg"
+              alt="Tom Ford Glasses"
+            />
+          </div>
+
+          <a class="product-name" tabindex="0" href="#">Tom Ford FT5532-B</a>
+
+          <h4>$ <span class="product-price">615.00</span></h4>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+        <!-- Single Product End -->
       </div>
     </section>
     <!-- Fashion Products End -->
+
+    <!-- Purchased Thank You Screen -->
+    <!-- <div class="purchase-screen">
+      <div class="purchase-screen-container">
+        <h3>Thank you for your purchase!</h3>
+        <h3>
+          Your confirmation number is #<span class="confirmation">0</span>
+        </h3>
+        <h3>Order Summary:</h3>
+        <i class="thank-you-close fas fa-times"></i>
+        <div class="purchased-products">
+          <div class="one-product-total">
+            <p>3x Tom Ford Sunglasses</p>
+            <p>$<span>615.00</span></p>
+          </div>
+        </div>
+        <div class="extra-details">
+          <div class="final-shipping">
+            <p>Shipping :</p>
+            <p>$<span></span></p>
+          </div>
+          <div class="final-discount">
+            <p>Discount :</p>
+            <p>-$<span></span></p>
+          </div>
+          <div class="final-tax">
+            <p>Tax :</p>
+            <p>$<span></span></p>
+          </div>
+        </div>
+
+        <div class="purchase-total">
+          <p>Total :</p>
+          <p>$<span>0.00</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="overlay overlay-3"></div> -->
+    <!-- Purchased Thank You Screen End -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -202,7 +389,12 @@
             <span>
               <i class="far fa-envelope"></i>
             </span>
-            <input type="text" class="email-input" placeholder="Email" />
+            <input
+              type="text"
+              class="email-input"
+              placeholder="Email"
+              required
+            />
             <button class="email-submit" type="submit">Sign Up</button>
           </form>
           <p class="invalid-input">
